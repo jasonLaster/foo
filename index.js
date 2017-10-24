@@ -1,25 +1,21 @@
-const shell = require("shelljs");
 const pager = require("node-pager");
-const debug = require("debug")("foo");
 
-function gitCmd(command) {
-  const { code, stdout, stderr } = shell.exec(`git ${command} --color=always`, {
-    silent: true
-  });
-
-  // const data = debug(command, { code, stdout, stderr });
-  return { code, stdout, stderr };
-}
+const { gitCmd } = require("./src/utils");
+const { checkout } = require("./src/tasks");
 
 async function log() {
-  const { stdout } = gitCmd("log");
+  const { stdout } = gitCmd("log  --color=always");
   pager(stdout);
 }
 
 function diff() {
-  const { stdout } = gitCmd("diff");
+  const { stdout } = gitCmd("diff  --color=always");
   console.log(stdout);
 }
 
 // log();
-diff();
+// diff();
+
+checkout("@bomsy:dummy");
+// checkout("@Fischer-L/4369-incorrect-line-out-of-scope");
+// checkout("4381");
