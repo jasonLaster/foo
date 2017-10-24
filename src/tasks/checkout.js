@@ -16,6 +16,11 @@ function addRemote(remote) {
   gitCmd(`remote add ${remote} https://github.com/${remote}/${repo}.git`);
 }
 
+function parseCheckout(cmd) {
+  const [, remote, branch] = cmd.match(/^@(.+):(.+)$/);
+  return { remote, branch };
+}
+
 function checkout(cmd) {
   if (cmd.match(/^!(@)/)) {
     return;
@@ -33,4 +38,4 @@ function checkout(cmd) {
   action(`:dancer: Current branch ${branch}`);
 }
 
-module.exports = { checkout };
+module.exports = { checkout, parseCheckout };
