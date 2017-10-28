@@ -1,4 +1,4 @@
-const m = jest.mock("../utils/gitCmd", {
+const m = jest.mock("../../utils/gitCmd", {
   gitCmd: jest.fn(() => ({
     stdout: "",
     stderr: "",
