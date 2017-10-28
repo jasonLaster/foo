@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+const main = require('../index');
+const program = require('commander');
+const pkg = require('../package.json');
+
+program
+  .version(pkg.version)
+
+program
+  .usage('[command]')
+
+program
+  .command('checkout <identifier>')
+  .alias('co')
+  .description('checks out a remote branch')
+
+program
+  .command('log')
+  .description('log out')
+
+program
+  .command('diff')
+  .description('display diff to the console')
+
+  program
+    .command('push')
+    .description('push')
+
+program.parse(process.argv);
+
+if (!program.args.length) {
+  program.help();
+}
+
+main(program);

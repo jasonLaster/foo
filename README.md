@@ -2,6 +2,12 @@
 
 An opinionated git cli for OSS.
 
+### How to install
+
+```js
+npm install -g foo | yarn add foo
+```
+
 * **push** push your local branch to GH, regardless of remote.
 * **delete** delete local branches
 * **remote** add a new remote
@@ -12,14 +18,16 @@ An opinionated git cli for OSS.
 
 ### Checkout
 
+```js
+foo checkout
+foo co
+```
+
 1. w/ PR ID
 2. w/ a URL
 3. @username/branch
 
-```
-foo checkout
-foo co
-```
+
 
 ```bash
 foo co 4381

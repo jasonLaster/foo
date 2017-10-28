@@ -6,7 +6,7 @@ const m = jest.mock("../utils/gitCmd", {
   }))
 });
 
-const { checkout, parseCheckout } = require("./checkout");
+const { checkout, parseCheckout } = require("../checkout");
 
 describe("checkout", () => {
   it("s", () => {
