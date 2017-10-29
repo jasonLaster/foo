@@ -20,8 +20,32 @@ foo co <id|url|branch>
 - `url` - The pull request url e.g `https://github.com/devtools-html/debugger.html/pull/4381`
 - `branch` - The username and branch e.g `@[user]/[branch]` or `@[user]:[branch]`
 
+### Diff
+
+Shows changes between commits, commit and working tree, etc
+
+```bash
+foo diff
+```
+
+### Log
+
+Shows the commit logs.
+
+```bash
+foo log
+```
+
+### Push
+
+Pushes your local branch to GH, regardless of remote.
+
+```bash
+foo push
+```
+
+
 ## Todo
-* **push** push your local branch to GH, regardless of remote.
 * **delete** delete local branches
 * **remote** add a new remote
 * **new** create a new branch

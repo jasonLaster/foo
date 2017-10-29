@@ -11,21 +11,21 @@ program
   .usage('[command]')
 
 program
-  .command('checkout <identifier>')
+  .command('checkout <id|url|branch>')
   .alias('co')
-  .description('checks out a remote branch')
+  .description('Gets a remote branch.')
 
 program
   .command('log')
-  .description('log out')
+  .description('Shows the commit logs.')
 
 program
   .command('diff')
-  .description('display diff to the console')
+  .description('Shows changes between commits, commit and working tree, etc')
 
   program
     .command('push')
-    .description('push')
+    .description('Pushes your local branch to GH, regardless of remote.')
 
 program.parse(process.argv);
 
