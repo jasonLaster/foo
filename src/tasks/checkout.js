@@ -22,11 +22,12 @@ function parseCheckout(cmd) {
 }
 
 function checkout(cmd) {
-  if (cmd.match(/^!(@)/)) {
+  const matches = cmd.match(/^@(.+)[:|\/](.+)$/);
+  if (!matches) {
     return;
   }
 
-  const [, remote, branch] = cmd.match(/^@(.+):(.+)$/);
+  const [, remote, branch] = matches;
   addRemote(remote);
 
   gitCmd(`fetch ${remote}`);
