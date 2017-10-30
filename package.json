@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "An opinionated git cli for oss",
   "main": "index.js",
+  "bin": {
+      "foo": "./bin/foo"
+  },
   "scripts": {
     "test": "jest"
   },
@@ -10,11 +13,14 @@
     "url": "git://github.com/devtools-html/foo.git",
     "type": "git"
   },
-  "author": "",
+  "author": "Jason Laster",
+  "files": [
+      "src",
+      "index.js"
+  ],
   "license": "ISC",
   "dependencies": {
     "commander": "^2.11.0",
-    "foo": "^1.0.0",
     "hankey": "^0.0.3",
     "jest": "^21.2.1",
     "node-pager": "^0.3.1",
