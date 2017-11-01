@@ -31,6 +31,7 @@ function checkout(cmd) {
   addRemote(remote);
 
   gitCmd(`fetch ${remote}`);
+
   const { stderr, code } = gitCmd(`checkout --track ${remote}/${branch}`);
   if (code != 0) {
     console.log(stderr);
