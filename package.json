@@ -1,6 +1,6 @@
 {
   "name": "foo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An opinionated git cli for oss",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,7 @@
     "type": "git"
   },
   "author": "Jason Laster",
-  "files": ["src", "index.js"],
+  "files": ["src", "bin", "index.js"],
   "license": "ISC",
   "dependencies": {
     "commander": "^2.11.0",
