@@ -4,7 +4,7 @@
   "description": "An opinionated git cli for oss",
   "main": "index.js",
   "bin": {
-    "foo": "./bin/foo"
+    "foo": "./bin/foo.js"
   },
   "scripts": {
     "test": "jest"
