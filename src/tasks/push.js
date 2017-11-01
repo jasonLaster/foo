@@ -1,3 +1,5 @@
+const { gitCmd } = require("../utils");
+
 function getRemote() {
   const { stdout } = gitCmd(`branch -vv`);
 
