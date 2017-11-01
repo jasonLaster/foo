@@ -1,6 +1,6 @@
 {
-  "name": "@jasonlaster11/foo",
-  "version": "0.0.2",
+  "name": "foo",
+  "version": "0.0.4",
   "description": "An opinionated git cli for oss",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "repository": {
-    "url": "git://github.com/devtools-html/foo.git",
+    "url": "git://github.com/jasonLaster/foo.git",
     "type": "git"
   },
   "author": "Jason Laster",
