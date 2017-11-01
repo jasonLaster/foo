@@ -1,10 +1,10 @@
 {
   "name": "foo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An opinionated git cli for oss",
   "main": "index.js",
   "bin": {
-    "foo": "./bin/foo"
+    "foo": "./bin/foo.js"
   },
   "scripts": {
     "test": "jest"
