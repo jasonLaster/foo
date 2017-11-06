@@ -13,8 +13,11 @@ npm install -g foo | yarn global add foo
 Gets a remote branch. This will add a remote origin if it does not exist, fetches it and checkouts the specified PR branch.
 
 ```bash
-foo checkout <id|url|branch>
-foo co <id|url|branch>
+foo checkout <arg>
+foo co <arg>
+
+#### args
+The `arg` can be any of the options below
 ```
 - `branch` - The username and branch e.g `@[user]/[branch]` or `@[user]:[branch]`
 - `id` - The pull request id e.g `4381` or `#4381` (in development)
