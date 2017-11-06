@@ -43,7 +43,6 @@ function checkout(cmd) {
   info(`:running: checking out ${remote}/${branch}...`);
   const { stderr, code } = gitCmd(`checkout --track ${remote}/${branch}`);
   if (code != 0) {
-    //console.log(stderr);
     error(`:bomb: ${stderr}`);
   }
 
