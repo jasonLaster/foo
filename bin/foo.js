@@ -6,10 +6,10 @@ const pkg = require("../package.json");
 
 program.version(pkg.version);
 
-program.usage("[command]");
+program.usage("[command] [arg]");
 
 program
-  .command("checkout <id|url|branch>")
+  .command("checkout <arg>")
   .alias("co")
   .description("Gets a remote branch.");
 
@@ -27,6 +27,7 @@ program.parse(process.argv);
 
 if (!program.args.length) {
   program.help();
+  process.exit(1);
 }
 
 main(program);

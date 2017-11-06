@@ -1,4 +1,4 @@
-const { action } = require("hankey");
+const { action, error, info } = require("hankey");
 const path = require("path");
 const { gitCmd } = require("../utils");
 
@@ -13,7 +13,13 @@ function getRepoName() {
 
 function addRemote(remote) {
   const repo = getRepoName();
-  gitCmd(`remote add ${remote} https://github.com/${remote}/${repo}.git`);
+  info(`:running: adding remote ${remote}...`);
+  const { stderr, code } = gitCmd(
+    `remote add ${remote} https://github.com/${remote}/${repo}.git`
+  );
+  if (code != 0) {
+    error(`:bomb: ${stderr}`);
+  }
 }
 
 function parseCheckout(cmd) {
@@ -30,14 +36,17 @@ function checkout(cmd) {
   const [, remote, branch] = matches;
   addRemote(remote);
 
+  info(`:running: fetching ${remote}...`);
   gitCmd(`fetch ${remote}`);
+  action(`:dizzy: successfully fetched ${remote}`);
 
+  info(`:running: checking out ${remote}/${branch}...`);
   const { stderr, code } = gitCmd(`checkout --track ${remote}/${branch}`);
   if (code != 0) {
-    console.log(stderr);
+    error(`:bomb: ${stderr}`);
   }
 
-  action(`:dancer: Current branch ${branch}`);
+  action(`:dancer: Current branch: ${branch}`);
 }
 
 module.exports = { checkout, parseCheckout };
