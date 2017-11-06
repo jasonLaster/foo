@@ -15,10 +15,9 @@ Gets a remote branch. This will add a remote origin if it does not exist, fetche
 ```bash
 foo checkout <arg>
 foo co <arg>
-
+```
 #### args
 The `arg` can be any of the options below
-```
 - `branch` - The username and branch e.g `@[user]/[branch]` or `@[user]:[branch]`
 - `id` - The pull request id e.g `4381` or `#4381` (in development)
 - `url` - The pull request url e.g `https://github.com/devtools-html/debugger.html/pull/4381` (in development)
