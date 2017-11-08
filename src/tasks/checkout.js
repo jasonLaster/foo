@@ -34,19 +34,23 @@ function checkout(cmd) {
   }
 
   const [, remote, branch] = matches;
+  const branchName = `${remote}-${branch}`;
   addRemote(remote);
 
   info(`:running: fetching ${remote}...`);
   gitCmd(`fetch ${remote}`);
   action(`:dizzy: successfully fetched ${remote}`);
 
-  info(`:running: checking out ${remote}/${branch}...`);
-  const { stderr, code } = gitCmd(`checkout --track ${remote}/${branch}`);
+  info(`:running: checking out ${remote}/${branch} to ${branchName}...`);
+  const { stderr, code } = gitCmd(
+    `checkout --track -b ${branchName} ${remote}/${branch}`
+  );
   if (code != 0) {
     error(`:bomb: ${stderr}`);
+  } else {
+    action(`:dizzy: checkout complete`);
+    action(`:dancer: Current branch: ${branchName}`);
   }
-
-  action(`:dancer: Current branch: ${branch}`);
 }
 
 module.exports = { checkout, parseCheckout };
