@@ -12,6 +12,7 @@ function getRemote() {
     return { remote: null, branch };
   }
 
+  const [, remoteBranch] = matches;
   const [remote, branch] = remoteBranch.split("/");
   return { remote, branch };
 }
