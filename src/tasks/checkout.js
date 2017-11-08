@@ -34,7 +34,7 @@ function checkout(cmd) {
   }
 
   const [, remote, branch] = matches;
-  const branchName = `${remote}#${branch}`;
+  const branchName = `${remote}-${branch}`;
   addRemote(remote);
 
   info(`:running: fetching ${remote}...`);
