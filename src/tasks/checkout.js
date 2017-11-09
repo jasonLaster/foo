@@ -13,7 +13,6 @@ function getRepoName() {
 
 function addRemote(remote) {
   const repo = getRepoName();
-  info(`:running: adding remote ${remote}...`);
 
   const { stderr, code } = gitCmd(
     `remote add ${remote} https://github.com/${remote}/${repo}.git`
@@ -25,6 +24,8 @@ function addRemote(remote) {
     }
 
     error(`:bomb: ${stderr}`);
+  } else {
+    action(`:bust_in_silhouette: Adding remote ${remote}`);
   }
 }
 
@@ -40,14 +41,14 @@ function checkout(cmd) {
   }
 
   const [, remote, branch] = matches;
+
   const branchName = `${remote}-${branch}`;
   addRemote(remote);
 
-  info(`:running: fetching ${remote}...`);
+  action(`:tennis: Fetching ${remote}`);
   gitCmd(`fetch ${remote}`);
-  action(`:dizzy: successfully fetched ${remote}`);
 
-  info(`:running: checking out ${remote}/${branch} to ${branchName}...`);
+  action(`:running: Moving to branch ${branchName}`);
   const { stderr, code } = gitCmd(
     `checkout --track -b ${branchName} ${remote}/${branch}`
   );
@@ -58,8 +59,7 @@ function checkout(cmd) {
 
     error(`:bomb: ${stderr}`);
   } else {
-    action(`:dizzy: checkout complete`);
-    action(`:dancer: Current branch: ${branchName}`);
+    info(`:dancer: Current branch: ${branchName}`);
   }
 }
 

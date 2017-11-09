@@ -19,6 +19,7 @@ program
 
 program
   .command("push")
+  .alias("p")
   .description("Pushes your local branch to GH, regardless of remote.");
 
 program.parse(process.argv);
