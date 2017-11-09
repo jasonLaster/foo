@@ -20,6 +20,11 @@ program
   .description("Shows changes between commits, commit and working tree, etc");
 
 program
+  .command("branches-delete")
+  .alias("bds")
+  .description("Delete branches.");
+
+program
   .command("push")
   .description("Pushes your local branch to GH, regardless of remote.");
 
