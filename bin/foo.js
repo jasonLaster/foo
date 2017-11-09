@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const main = require("../index");
 const program = require("commander");
 const pkg = require("../package.json");
 
@@ -13,14 +12,14 @@ program
   .alias("co")
   .description("Gets a remote branch.");
 
-program.command("log").description("Shows the commit logs.");
-
 program
-  .command("diff")
-  .description("Shows changes between commits, commit and working tree, etc");
+  .command("branches-delete")
+  .alias("bds")
+  .description("Delete branches.");
 
 program
   .command("push")
+  .alias("p")
   .description("Pushes your local branch to GH, regardless of remote.");
 
 program.parse(process.argv);
@@ -29,5 +28,3 @@ if (!program.args.length) {
   program.help();
   process.exit(1);
 }
-
-main(program);

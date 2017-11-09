@@ -23,6 +23,7 @@
   "dependencies": {
     "commander": "^2.11.0",
     "hankey": "^0.0.3",
+    "inquirer": "^3.3.0",
     "jest": "^21.2.1",
     "node-pager": "^0.3.1",
     "shelljs": "^0.7.8"

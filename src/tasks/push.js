@@ -27,12 +27,12 @@ function push() {
 
   if (remote) {
     gitCmd(`push --no-verify -f ${remote} ${branch} `);
-    action(`:dizzy: successfully pushed to ${remote}/${branch}`);
+    action(`:dizzy: Pushed to ${remote}/${branch}`);
     return;
   }
 
   gitCmd(`push --no-verify -f me ${branch} `);
-  action(`:dizzy: successfully pushed to ${branch}`);
+  action(`:dizzy: Pushed to ${branch}`);
 }
 
 module.exports = { getRemote, push };
