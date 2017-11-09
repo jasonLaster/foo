@@ -14,10 +14,16 @@ function getRepoName() {
 function addRemote(remote) {
   const repo = getRepoName();
   info(`:running: adding remote ${remote}...`);
+
   const { stderr, code } = gitCmd(
     `remote add ${remote} https://github.com/${remote}/${repo}.git`
   );
+
   if (code != 0) {
+    if (stderr.match(/remote.*already exists./)) {
+      return;
+    }
+
     error(`:bomb: ${stderr}`);
   }
 }
@@ -46,6 +52,10 @@ function checkout(cmd) {
     `checkout --track -b ${branchName} ${remote}/${branch}`
   );
   if (code != 0) {
+    if (stderr.match(/A branch named.*already exists./)) {
+      return;
+    }
+
     error(`:bomb: ${stderr}`);
   } else {
     action(`:dizzy: checkout complete`);

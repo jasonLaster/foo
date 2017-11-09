@@ -12,7 +12,7 @@ function getBranches() {
 }
 
 async function branchesDelete(config) {
-  const branches = getBranches();
+  const branches = getBranches().filter(branch => !branch.match(/^master$/));
 
   const response = await inquirer.prompt([
     {
@@ -29,7 +29,7 @@ async function branchesDelete(config) {
   out.stdout
     .trim()
     .split("\n")
-    .forEach(line => action(`:gun: ${line}`));
+    .forEach(line => error(`:gun: ${line}`));
 }
 
 module.exports = branchesDelete;

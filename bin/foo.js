@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const main = require("../index");
 const program = require("commander");
 const pkg = require("../package.json");
 
@@ -12,12 +11,6 @@ program
   .command("checkout <arg>")
   .alias("co")
   .description("Gets a remote branch.");
-
-program.command("log").description("Shows the commit logs.");
-
-program
-  .command("diff")
-  .description("Shows changes between commits, commit and working tree, etc");
 
 program
   .command("branches-delete")
@@ -34,5 +27,3 @@ if (!program.args.length) {
   program.help();
   process.exit(1);
 }
-
-main(program);
